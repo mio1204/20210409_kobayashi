@@ -1,0 +1,527 @@
+body {
+  line-height: 1.3;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img:not(.intro img) {
+  max-width: 100%;
+  height: auto;
+}
+
+.frame:not(.header) {
+  padding: 40px 20px;
+}
+
+$bg: #fff7fb;
+
+$pc: 769px;
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin buttonStyle($bgcolor: #e37ab0, $fontcolor: white, $width: 400px) {
+  max-width: $width;
+  height: 60px;
+  background-color: $bgcolor;
+  color: $fontcolor;
+  border-radius: 30px;
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+  line-height: 60px;
+}
+
+@mixin h2ttlStyle($fontsize: 1rem, $margin: 30px 0) {
+  font-size: $fontsize;
+  margin: $margin;
+}
+
+// ヘッダー-------------------------------------------
+.header__nav {
+  display: none;
+}
+
+.header {
+  padding: 20px;
+}
+
+// ファーストビュー-------------------------------------
+.firstview {
+  background-image: url(img/fv__bg-sp.svg);
+  background-size: cover;
+  .firstview__eyecatch {
+    font-size: 2rem;
+    @include pc {
+      font-size: 3rem;
+    }
+  }
+  .firstview__txt {
+    margin-top: 30px;
+  }
+  .firstview__img {
+    margin: 40px 0 50px;
+  }
+  .button-pink {
+    @include buttonStyle;
+  }
+}
+
+// About--------------------------------------------
+.about {
+  background-color: $bg;
+  .common__eyecatch {
+    @include h2ttlStyle;
+  }
+}
+
+// お悩み---------------------------------------------
+.common__ttl {
+  @include h2ttlStyle($fontsize: 1.5rem);
+  text-align: center;
+  @include pc {
+    @include h2ttlStyle($fontsize: 2rem);
+  }
+}
+.trouble__item {
+  font-weight: bold;
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  .trouble__img {
+    width: 50%;
+    margin-right: 50px;
+  }
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    .trouble__img {
+      margin-left: 50px;
+      margin-right: initial;
+    }
+  }
+}
+
+// learnでかいけつ--------------------------------------
+.solution {
+  background-color: $bg;
+  .solution__txt .common__eyecatch {
+    @include h2ttlStyle($fontsize: 1.4rem);
+    margin-top: 5px;
+    @include pc {
+      @include h2ttlStyle($fontsize: 1.5rem, $margin: 0 0 30px);
+    }
+  }
+  .solution__count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e37ab0;
+    margin-right: 30px;
+  }
+  .solution__img {
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// 機能一覧--------------------------------------------
+.feature__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1024px;
+  .feature__item {
+    display: block;
+    float: left;
+    border: 1px solid pink;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px 25px;
+    margin: 3px;
+    img {
+      margin-bottom: 5px;
+    }
+  }
+}
+@include pc {
+  .feature__content {
+    margin-bottom: 20px;
+  }
+}
+
+// 成長が楽しくなる・まずは無料で---------------------------------
+.banner {
+  background-color: #e37ab0;
+  text-align: center;
+  .banner__button {
+    max-width: 1024px;
+    margin-bottom: 20px;
+  }
+  .common__eyecatch {
+    @include h2ttlStyle($fontsize: 1.2rem);
+    color: white;
+    @include pc {
+      @include h2ttlStyle($fontsize: 1.5rem);
+    }
+  }
+}
+
+.button-blue {
+  @include buttonStyle($bgcolor: #6f99e3);
+}
+
+.button-white {
+  @include buttonStyle($bgcolor: white, $fontcolor: #e37ab0);
+}
+
+// 導入企業---------------------------------------------
+.intro__wrap {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.intro__item {
+  margin: 10px 5px;
+  box-shadow: 1px 1px 3px #e8e8e8;
+  border-radius: 10px;
+  img {
+    width: 90vw;
+    border-radius: 10px;
+    @include pc {
+      width: 20vw;
+    }
+  }
+  .intro__item-txt {
+    padding: 20px;
+    font-size: 1.2rem;
+    position: relative;
+  }
+  .intro__item-cat {
+    position: absolute;
+    top: -15%;
+    border: 1px solid #e37ab0;
+    background-color: white;
+    padding: 5px 20px;
+    font-weight: bold;
+  }
+  .intro__item-txt-name {
+    margin: 20px 0;
+  }
+}
+
+// 費用-----------------------------------------------
+.price__wrap-content {
+  display: flex;
+  justify-content: center;
+  .price__item {
+    width: 300px;
+    box-shadow: 1px 1px 3px #e8e8e8;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+    margin: 30px 0;
+    .price__item-ttl {
+      color: white;
+      padding: 10px 0;
+      background-color: #6f99e3;
+      h2 {
+        font-size: 2rem;
+      }
+      .price__month {
+        font-size: 1rem;
+      }
+    }
+    &:nth-child(even) .price__item-ttl {
+      background-color: #e37ab0;
+    }
+    .price__item-txt {
+      padding: 0 30px;
+      p {
+        // margin-top: 10px;
+        padding: 20px 0 10px;
+        border-bottom: 1px solid #e8e8e8;
+      }
+    }
+    .price__item-button {
+      @include buttonStyle($bgcolor: #e8e8e8, $fontcolor: black, $width: 250px);
+    }
+  }
+}
+
+// よくある質問-------------------------------------------
+.faq__wrap-content {
+  display: flex;
+  justify-content: center;
+}
+
+.faq__wrap {
+  max-width: 768px;
+  .faq__item-ttl {
+    border: 1px solid #e37ab0;
+    border-radius: 10px;
+    padding: 15px 40px;
+    color: #e37ab0;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "Q";
+      top: 30%;
+      left: 5%;
+      font-weight: bold;
+      @include pc {
+        transform: translate(-150%);
+      }
+    }
+    &::after {
+      position: absolute;
+      top: 40%;
+      left: 92%;
+      content: "";
+      width: 5px;
+      height: 5px;
+      border: 2px solid;
+      border-color: transparent transparent #565656 #565656;
+      transform: rotate(-45deg);
+      @include pc {
+        left: 95%;
+      }
+    }
+  }
+  .faq__item-txt {
+    padding: 20px 25px 30px 40px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "A";
+      left: 5%;
+      color: #6f99e3;
+      font-weight: bold;
+      @include pc {
+        transform: translate(-150%);
+      }
+    }
+  }
+}
+
+// .faq__arrow {
+//   width: 10px;
+//   height: 10px;
+//   border: 2px solid;
+//   border-color: transparent transparent #565656 #565656;
+//   transform: rotate(-45deg);
+// }
+
+// フッタ---------------------------------------------
+.footer {
+  background-color: $bg;
+  .footer__nav-list {
+    margin: 0 50px;
+    li {
+      line-height: 2rem;
+    }
+  }
+  .footer__logo {
+    margin: 20px 0;
+  }
+}
+
+.copyright {
+  background-color: $bg;
+  text-align: center;
+}
+
+// PC表示---------------------------------------------
+@media screen and (min-width: 769px) {
+  .flex__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .common__eyecatch {
+    @include h2ttlStyle($fontsize: 1.5rem);
+  }
+
+  // ヘッダーナビPC------------------------------------
+  .header__logo {
+    display: flex;
+    margin-right: 10px;
+  }
+
+  .header__nav-list {
+    display: flex;
+    align-items: center;
+    li {
+      padding-right: 10px;
+    }
+  }
+
+  .header__nav-button {
+    margin: 0 50px;
+    .button-pink {
+      @include buttonStyle;
+      width: 200px;
+      margin-right: 20px;
+    }
+    .button-blue {
+      @include buttonStyle($bgcolor: #6f99e3);
+      width: 200px;
+    }
+  }
+
+  // ファーストビュー PC-----------------------------------
+  .firstview__wrap {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-image: url(img/fv__bg-pc.svg);
+    .firstview {
+      background-image: unset;
+      display: grid;
+      grid-template-rows: 50% 50%;
+      grid-template-columns: 60% 40%;
+      justify-items: left;
+      .firstview__item {
+        width: 85%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        .firstview__txt {
+          width: 80%;
+        }
+      }
+      .firstview__button {
+        align-self: flex-start;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        .button-pink {
+          @include buttonStyle;
+          width: 400px;
+          display: inline-block;
+        }
+      }
+      .firstview__img {
+        width: 95%;
+        grid-column: 2/3;
+        grid-row: 1/3;
+      }
+    }
+  }
+
+  // about PC--------------------------------------
+  .about {
+    flex-direction: row-reverse;
+    .common__eyecatch {
+      @include h2ttlStyle($fontsize: 2rem);
+    }
+  }
+
+  .about__img {
+    width: 100%;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 65%;
+    }
+    img {
+      position: absolute;
+      top: 3%;
+      left: -20%;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  // お悩みPC-----------------------------------------
+  .trouble__wrap {
+    padding: 0 30px;
+  }
+
+  .trouble__item {
+    display: block;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    text-align: center;
+    .trouble__txt {
+      padding: 20px 50px;
+    }
+    .trouble__img {
+      width: 100%;
+      height: auto;
+      margin-right: initial;
+      margin: 0 auto;
+    }
+    &:nth-child(even) {
+      .trouble__img {
+        margin-left: initial;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // 解決PC-------------------------------------------
+  .solution__wrap {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    flex-direction: row;
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+    .solution__count {
+      float: left;
+    }
+    .solution__txt {
+      width: 100%;
+      padding: 50px;
+    }
+  }
+
+  // 成長が楽しくなる・まずは無料でPC----------------------
+  .banner__button-content {
+    display: flex;
+    justify-content: center;
+    .button-blue,
+    .button-white {
+      width: 300px;
+      margin: 0 10px;
+    }
+  }
+
+  // 機能一覧PC----------------------------------------
+  .feature__content {
+    display: flex;
+    justify-content: center;
+    .feature__item:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  // 費用PC------------------------------------------
+  .price__wrap {
+    align-items: center;
+  }
+
+  // フッター-----------------------------------------
+  .footer {
+    align-items: flex-start;
+    .footer__logo {
+      margin: 0 0 0 10%;
+    }
+    .footer__nav-list:not(:first-of-type) {
+      margin-right: 10%;
+    }
+  }
+}
