@@ -319,7 +319,8 @@ img:not(.intro img) {
 .faq__wrap .faq__item-ttl {
   border: 1px solid #e37ab0;
   border-radius: 10px;
-  padding: 15px 40px;
+  font-weight: bold;
+  padding: 20px 40px;
   color: #e37ab0;
   position: relative;
 }
@@ -327,12 +328,12 @@ img:not(.intro img) {
 .faq__wrap .faq__item-ttl::before {
   position: absolute;
   content: "Q";
-  top: 30%;
-  left: 5%;
+  top: 31%;
+  left: 4%;
   font-weight: bold;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 480px) {
   .faq__wrap .faq__item-ttl::before {
     transform: translate(-150%);
   }
@@ -357,19 +358,19 @@ img:not(.intro img) {
 }
 
 .faq__wrap .faq__item-txt {
-  padding: 20px 25px 30px 40px;
+  padding: 20px 25px 40px 40px;
   position: relative;
 }
 
 .faq__wrap .faq__item-txt::before {
   position: absolute;
   content: "A";
-  left: 5%;
+  left: 4%;
   color: #6f99e3;
   font-weight: bold;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 480px) {
   .faq__wrap .faq__item-txt::before {
     transform: translate(-150%);
   }
@@ -498,19 +499,6 @@ img:not(.intro img) {
   }
   .about__img {
     width: 100%;
-    position: relative;
-  }
-  .about__img::before {
-    content: "";
-    display: block;
-    padding-top: 65%;
-  }
-  .about__img img {
-    position: absolute;
-    top: 3%;
-    left: -20%;
-    bottom: 0;
-    right: 0;
   }
   .trouble__wrap {
     padding: 0 30px;

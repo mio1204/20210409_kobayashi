@@ -29,6 +29,13 @@ $pc: 769px;
   }
 }
 
+$tab: 480px;
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
 @mixin buttonStyle($bgcolor: #e37ab0, $fontcolor: white, $width: 400px) {
   max-width: $width;
   height: 60px;
@@ -271,16 +278,18 @@ $pc: 769px;
   .faq__item-ttl {
     border: 1px solid #e37ab0;
     border-radius: 10px;
-    padding: 15px 40px;
+    font-weight: bold;
+    padding: 20px 40px;
     color: #e37ab0;
     position: relative;
     &::before {
       position: absolute;
       content: "Q";
-      top: 30%;
-      left: 5%;
+      top: 31%;
+      left: 4%;
       font-weight: bold;
-      @include pc {
+      @include pc;
+      @include tab {
         transform: translate(-150%);
       }
     }
@@ -300,28 +309,21 @@ $pc: 769px;
     }
   }
   .faq__item-txt {
-    padding: 20px 25px 30px 40px;
+    padding: 20px 25px 40px 40px;
     position: relative;
     &::before {
       position: absolute;
       content: "A";
-      left: 5%;
+      left: 4%;
       color: #6f99e3;
       font-weight: bold;
-      @include pc {
+      @include pc;
+      @include tab {
         transform: translate(-150%);
       }
     }
   }
 }
-
-// .faq__arrow {
-//   width: 10px;
-//   height: 10px;
-//   border: 2px solid;
-//   border-color: transparent transparent #565656 #565656;
-//   transform: rotate(-45deg);
-// }
 
 // フッタ---------------------------------------------
 .footer {
@@ -429,19 +431,19 @@ $pc: 769px;
 
   .about__img {
     width: 100%;
-    position: relative;
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 65%;
-    }
-    img {
-      position: absolute;
-      top: 3%;
-      left: -20%;
-      bottom: 0;
-      right: 0;
-    }
+    // position: relative;
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   padding-top: 65%;
+    // }
+    // img {
+    //   position: absolute;
+    //   top: 3%;
+    //   left: -20%;
+    //   bottom: 0;
+    //   right: 0;
+    // }
   }
 
   // お悩みPC-----------------------------------------
